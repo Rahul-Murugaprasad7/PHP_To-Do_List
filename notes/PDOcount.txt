@@ -1,0 +1,13 @@
+public PDOStatement::rowCount(): int
+
+
+PDOStatement::rowCount() returns the number of rows affected by the last DELETE, INSERT, or UPDATE statement executed by the corresponding PDOStatement object.
+
+For statements that produce result sets, such as SELECT, the behavior is undefined and can be different for each driver. 
+Some databases may return the number of rows produced by that statement (e.g. MySQL in buffered mode),
+ but this behaviour is not guaranteed for all databases and should not be relied on for portable applications.
+
+Note:
+
+This method returns "0" (zero) with the SQLite driver at all times, 
+and with the PostgreSQL driver only when setting the PDO::ATTR_CURSOR statement attribute to PDO::CURSOR_SCROLL.

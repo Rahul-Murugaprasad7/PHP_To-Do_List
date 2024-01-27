@@ -1,0 +1,18 @@
+PDO::ERRMODE_SILENT
+
+Prior to PHP 8.0.0, this was the default mode. 
+PDO will simply set the error code for you to inspect using the PDO::errorCode() and PDO::errorInfo() methods on both the statement and database objects; 
+if the error resulted from a call on a statement object, you would invoke the PDOStatement::errorCode() or PDOStatement::errorInfo() method on that object. 
+If the error resulted from a call on the database object, you would invoke those methods on the database object instead.
+
+PDO::ERRMODE_WARNING
+
+In addition to setting the error code,PDO will emit a traditional E_WARNING message.
+  This setting is useful during debugging/testing, if you just want to see what problems occurred without interrupting the flow of the application.
+
+PDO::ERRMODE_EXCEPTION
+
+As of PHP 8.0.0, this is the default mode. 
+In addition to setting the error code, PDO will throw a PDOException and set its properties to reflect the error code and error information. 
+This setting is also useful during debugging, as it will effectively "blow up" the script at the point of the error,
+ very quickly pointing a finger at potential problem areas in your code (remember: transactions are automatically rolled back if the exception causes the script to terminate).
